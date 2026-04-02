@@ -97,10 +97,11 @@
             padding: 12px;
             font-size: 0.95rem;
             resize: none; /* Хэрэглэгч өөрөө булагнаас нь татаж сунгахыг идэвхгүй болгох */
+            overflow-y: hidden; /* Скролл баар харагдахгүй */
             box-sizing: border-box;
             line-height: 1.4;
-            height: 80px; /*Блокийн өндөр*/
-            transition: height 0.2s ease; /* Өндөр өөрчлөгдөхөд зөөлөн харагдуулна */
+            min-height: 80px; /*Блокийн өндөр*/
+            transition: height 0.1s ease; /* Өндөр өөрчлөгдөхөд зөөлөн харагдуулна */
         }
 
         /* --- RIGHT SIDE CLOCK --- */
@@ -208,7 +209,7 @@
                     <div class="target-date">Jan 15, 2027</div>
                     <div class="countdown-text">-- days</div>
                 </div>
-                <textarea class="note-area" oninput="autoResize(this)" rows="1" style="overflow:hidden" placeholder="Proofreading нь хамгийн эцсийн шатны шүүлтүүр юм. Үүнийг энгийнээр хэлбэл, номыг хэвлэх машин руу явуулахаас өмнө хийх хамгийн сүүлийн нягтлан шалгалт гэж болно. Энэ шатанд зохиолын утга санаа, найруулга, дүрүүдийн хөгжилд огт гар хүрдэггүй. Зөвхөн техникийн болон механик алдааг олж засахад төвлөрдөг. &#10;Үг үсгийн алдаа: Техникийн болон механик алдаа (Жишээ нь: зохиол гэхийг зохиоол гэж бичсэн байх). &#10;Цэг таслал: Илүүдсэн эсвэл дутсан цэг, таслал, хашилт, зураас. &#10;Дүрмийн алдаа: Хэл зүйн тохироо алдагдсан хэсгүүд. &#10;Формат ба Эх бэлтгэл: * Хуудасны дугаарлалт зөв эсэх. Гарчиг болон агуулгын хүснэгт таарч байгаа эсэх. Мөр хоорондын зай, үсгийн фонт солигдсон эсэх. Зураг, хүснэгтийн тайлбар зөв байрласан эсэх."></textarea>
+                <textarea class="note-area" placeholder="Proofreading нь хамгийн эцсийн шатны шүүлтүүр юм. Үүнийг энгийнээр хэлбэл, номыг хэвлэх машин руу явуулахаас өмнө хийх хамгийн сүүлийн нягтлан шалгалт гэж болно. Энэ шатанд зохиолын утга санаа, найруулга, дүрүүдийн хөгжилд огт гар хүрдэггүй. Зөвхөн техникийн болон механик алдааг олж засахад төвлөрдөг. &#10;Үг үсгийн алдаа: Техникийн болон механик алдаа (Жишээ нь: зохиол гэхийг зохиоол гэж бичсэн байх). &#10;Цэг таслал: Илүүдсэн эсвэл дутсан цэг, таслал, хашилт, зураас. &#10;Дүрмийн алдаа: Хэл зүйн тохироо алдагдсан хэсгүүд. &#10;Формат ба Эх бэлтгэл: * Хуудасны дугаарлалт зөв эсэх. Гарчиг болон агуулгын хүснэгт таарч байгаа эсэх. Мөр хоорондын зай, үсгийн фонт солигдсон эсэх. Зураг, хүснэгтийн тайлбар зөв байрласан эсэх."></textarea>
             </div>
             
             <div class="deadline-card" data-time="2027-01-15T12:00:00">
@@ -307,19 +308,22 @@
     
 
 <script>
-function autoResize(textarea) {
-    if (!textarea) return;
-    textarea.style.height = 'auto';
-    textarea.style.height = (textarea.scrollHeight) + 'px';
+// Текст блокийн өндрийг тааруулах функц
+function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
 }
 
-// Энэ хэсэг нь хуудсыг нээхэд бүх textarea-г автоматаар сунгана
+// Хуудас ачаалагдахад бүх textarea-г шалгаж, өндрийг нь тааруулах
 document.addEventListener('DOMContentLoaded', () => {
-    const notes = document.querySelectorAll('.note-area');
-    notes.forEach(note => {
-        autoResize(note);
-        // Мөн бичих үед ажиллахаар холбож өгөх (Inline биш бол)
-        note.addEventListener('input', function() {
+    const textareas = document.querySelectorAll('.note-area');
+
+    textareas.forEach(textarea => {
+        // 1. Анх ачаалагдах үед дотор нь текст байвал сунгана
+        autoResize(textarea);
+
+        // 2. Хэрэглэгч бичих болгонд сунгана
+        textarea.addEventListener('input', function() {
             autoResize(this);
         });
     });
