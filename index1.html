@@ -267,14 +267,14 @@
 
     
 <script>
-// 1. Текст блокийн өндрийг автоматаар тааруулах
+// 1. Текст блок сунгах функц
 function autoResize(textarea) {
     if (!textarea) return;
     textarea.style.height = 'auto';
     textarea.style.height = textarea.scrollHeight + 'px';
 }
 
-// 2. Аналог цагийг "урсгаж" ажиллуулах (Smooth Sweep)
+// 2. Аналог цагийг урсгах (Smooth sweep)
 function updateAnalogClock() {
     const now = new Date();
     const seconds = now.getSeconds();
@@ -282,11 +282,12 @@ function updateAnalogClock() {
     const minutes = now.getMinutes();
     const hours = now.getHours();
 
-    // Секундийн зүүг миллисекундтэй тооцож урсгах
+    // Миллисекунд ашиглан зүүг маш зөөлөн урсгах тооцоолол
     const secondDegrees = ((seconds + millis / 1000) / 60) * 360 + 90;
     const minuteDegrees = ((minutes + seconds / 60) / 60) * 360 + 90;
     const hourDegrees = ((hours % 12 + minutes / 60) / 12) * 360 + 90;
 
+    // Класс нэршлүүдээ таны HTML-тэй ижил байгааг шалгаарай
     const secondHand = document.querySelector('.second-hand');
     const minHand = document.querySelector('.min-hand');
     const hourHand = document.querySelector('.hour-hand');
@@ -296,7 +297,7 @@ function updateAnalogClock() {
     if (hourHand) hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 }
 
-// 3. Хоног тоолуурыг шинэчлэх (Countdown)
+// 3. Хоног тоолуур (Секундгүй, цэгцтэй хувилбар)
 function updateCountdowns() {
     const cards = document.querySelectorAll('.deadline-card');
     const now = new Date().getTime();
@@ -310,29 +311,30 @@ function updateCountdowns() {
             const distance = targetDate - now;
 
             if (distance < 0) {
-                display.innerHTML = "<b style='color:red;'>Deadline Passed</b>";
+                display.innerHTML = "<span style='color:#bdc3c7;'>Дууссан</span>";
             } else {
                 const d = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((distance % (1000 * 60)) / 1000);
                 
-                display.innerHTML = `<b>${d}</b>d <b>${h}</b>h <b>${m}</b>m <b>${s}</b>s`;
+                // Зөвхөн Хоног, Цаг, Минут харуулна
+                display.innerHTML = `<b>${d}</b>д <b>${h}</b>ц <b>${m}</b>м`;
             }
         }
     });
 }
 
-// Бүх зүйлийг ажиллуулж эхлэх
+// Бүгдийг идэвхжүүлэх
 document.addEventListener('DOMContentLoaded', () => {
-    // Текст блокуудыг анхлан сунгах
+    // Текст блокуудыг эхлүүлэх
     document.querySelectorAll('.note-area').forEach(autoResize);
 
-    // Секунд тутамд (эсвэл 50ms тутамд) шинэчлэх
-    setInterval(() => {
-        updateAnalogClock();
-        updateCountdowns();
-    }, 50); // 50ms нь секундийн зүүг маш зөөлөн урсгана
+    // Цагийг маш ойрхон (50ms) шинэчилж урсгах
+    setInterval(updateAnalogClock, 50);
+
+    // Тоолуурыг минут тутамд шинэчилсэн ч болно, эсвэл секунд тутамд
+    updateCountdowns();
+    setInterval(updateCountdowns, 1000); 
 });
 </script>
 
