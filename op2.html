@@ -1,142 +1,211 @@
 <!DOCTYPE html>
-<html lang="mn">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craftivo - Single File Demo</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Craftivo - Portfolio Template</title>
 
-    <style>
-        /* CSS-г энд нэгтгэв */
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --text-light: #ffffff;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #444;
-        }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
 
-        .header {
-            background: #fff;
-            transition: all 0.5s;
-            z-index: 997;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-        }
+  <style>
+    /* Үндсэн стиль */
+    :root {
+      --primary-color: #4eb1ba;
+      --secondary-color: #2d3e50;
+      --heading-font: 'Raleway', sans-serif;
+      --body-font: 'Roboto', sans-serif;
+    }
 
-        .hero {
-            width: 100%;
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center center;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
+    body {
+      font-family: var(--body-font);
+      color: #444444;
+    }
 
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-        }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--heading-font);
+    }
 
-        .section-title {
-            text-align: center;
-            padding-bottom: 30px;
-            margin-top: 60px;
-        }
+    /* Header & Navigation */
+    #header {
+      height: 80px;
+      transition: all 0.5s;
+      z-index: 997;
+      background: #fff;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        .card {
-            border: none;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            margin-bottom: 30px;
-        }
+    .nav-link {
+      color: var(--secondary-color);
+      font-weight: 500;
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-        }
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary-color);
+    }
 
-        footer {
-            background: #111;
-            color: #fff;
-            padding: 40px 0;
-            margin-top: 60px;
-            text-align: center;
-        }
-    </style>
+    /* Hero Section */
+    #hero {
+      width: 100%;
+      height: 90vh;
+      background: linear-gradient(rgba(45, 62, 80, 0.8), rgba(45, 62, 80, 0.8)), 
+                  url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1500&q=80') center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+
+    #hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .btn-get-started {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 10px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-get-started:hover {
+      background: #3d8d94;
+      color: #fff;
+    }
+
+    /* Services & Cards */
+    .section-title {
+      text-align: center;
+      padding: 60px 0 30px 0;
+    }
+
+    .service-item {
+      padding: 40px;
+      box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      border-radius: 8px;
+      height: 100%;
+      background: #fff;
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-item i {
+      font-size: 36px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 50px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+  </style>
 </head>
+
 <body>
 
-    <header class="header fixed-top">
-        <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="#" class="text-decoration-none text-dark">Craftivo</a></h1>
-            <nav class="nav">
-                <ul class="d-flex list-unstyled m-0">
-                    <li class="px-3"><a href="#" class="active">Нүүр</a></li>
-                    <li class="px-3"><a href="#">Бидний тухай</a></li>
-                    <li class="px-3"><a href="#">Үйлчилгээ</a></li>
-                    <li class="px-3"><a href="#">Холбоо барих</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="#" class="text-decoration-none" style="color: var(--primary-color);">Craftivo<span>.</span></a></h1>
+      <nav class="navbar">
+        <ul class="nav">
+          <li><a class="nav-link active" href="#hero">Home</a></li>
+          <li><a class="nav-link px-3" href="#about">About</a></li>
+          <li><a class="nav-link px-3" href="#services">Services</a></li>
+          <li><a class="nav-link px-3" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link px-3" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Бүтээлч шийдэл, Төгс гүйцэтгэл</h1>
-            <p>Бид таны бизнесийг дараагийн түвшинд гаргахад тусална.</p>
-            <a href="#" class="btn btn-primary btn-lg mt-3">Эхлэх</a>
+  <section id="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1>Modern Solutions for Your Business</h1>
+          <p class="fs-5 mb-4">We are a team of talented designers making websites with Bootstrap.</p>
+          <div>
+            <a href="#about" class="btn-get-started">Get Started</a>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="services" class="container">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Check our wide range of professional services</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="bi bi-briefcase"></i>
+            <h3>Web Design</h3>
+            <p>Creating beautiful and functional websites tailored to your brand identity.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="bi bi-card-checklist"></i>
+            <h3>Development</h3>
+            <p>Building robust and scalable web applications using the latest technologies.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="bi bi-bar-chart"></i>
+            <h3>Marketing</h3>
+            <p>Strategic digital marketing to grow your online presence and reach more customers.</p>
+          </div>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <main class="container">
-        <div class="section-title">
-            <h2>Бидний Үйлчилгээ</h2>
-            <p>Таны хэрэгцээнд нийцсэн шилдэг шийдлүүд</p>
-        </div>
+  <footer>
+    <div class="container">
+      <h3>Craftivo</h3>
+      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <div class="social-links mt-3">
+        <a href="#" class="btn btn-outline-light btn-sm mx-1"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="btn btn-outline-light btn-sm mx-1"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="btn btn-outline-light btn-sm mx-1"><i class="bi bi-instagram"></i></a>
+      </div>
+      <div class="copyright mt-4">
+        &copy; Copyright <strong><span>Craftivo</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h3>Вэб Дизайн</h3>
-                    <p>Орчин үеийн, хэрэглэгчдэд ээлтэй вэбсайт бүтээх.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h3>Маркетинг</h3>
-                    <p>Таны брэндийг зах зээлд таниулах стратегийн төлөвлөлт.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h3>Зөвлөх үйлчилгээ</h3>
-                    <p>Мэргэжлийн түвшний зөвлөгөө, тусламж.</p>
-                </div>
-            </div>
-        </div>
-    </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Header scroll эффект
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('#header');
+      if (window.scrollY > 100) {
+        header.style.padding = "10px 0";
+      } else {
+        header.style.padding = "20px 0";
+      }
+    });
+  </script>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Craftivo. Бүх эрх хуулиар хамгаалагдсан.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Интэрактив үйлдэл оруулах хэсэг
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("Craftivo Single-file HTML ачааллаа!");
-        });
-    </script>
 </body>
 </html>
