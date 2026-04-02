@@ -3,137 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ном Маркетинг | Баялаг Агуулга</title>
+    <title>Craftivo - Single File Demo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        :root { --primary: #1a1a1a; --accent: #d4a373; --bg: #f4f4f4; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; line-height: 1.6; }
-        
-        /* Layout */
-        header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
-        .main-nav { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border-bottom: 2px solid var(--accent); }
-        .nav-btn { padding: 20px; border: none; cursor: pointer; font-weight: bold; background: none; transition: 0.3s; }
-        .nav-btn.active { background: var(--accent); color: white; }
-        
-        .sub-nav { display: none; background: #eee; padding: 10px; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .sub-nav.show { display: flex; }
-        .sub-btn { background: white; border: 1px solid #ccc; padding: 8px 20px; border-radius: 20px; cursor: pointer; }
-        .sub-btn:hover { background: var(--accent); color: white; }
+        /* CSS-г энд нэгтгэв */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-light: #ffffff;
+        }
 
-        /* Content Styling */
-        .content { max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        
-        /* Зургийн тохиргоо */
-        .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 15px 0; display: block; }
-        
-        /* Мэдээний блок (Card) */
-        .news-card { border-left: 5px solid var(--accent); background: #fff9f0; padding: 15px; margin: 20px 0; border-radius: 4px; }
-        
-        /* Таб эсвэл Жагсаалт */
-        ul.feature-list { padding: 0; list-style: none; }
-        ul.feature-list li { background: #f9f9f9; margin-bottom: 5px; padding: 10px; border-radius: 4px; border-left: 3px solid #333; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #444;
+        }
 
-        @media (max-width: 600px) { .main-nav { grid-template-columns: 1fr; } }
+        .header {
+            background: #fff;
+            transition: all 0.5s;
+            z-index: 997;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero {
+            width: 100%;
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            text-align: center;
+            padding-bottom: 30px;
+            margin-top: 60px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
-<header><h1>НОМЫН СҮЛЖЭЭ</h1></header>
+    <header class="header fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="#" class="text-decoration-none text-dark">Craftivo</a></h1>
+            <nav class="nav">
+                <ul class="d-flex list-unstyled m-0">
+                    <li class="px-3"><a href="#" class="active">Нүүр</a></li>
+                    <li class="px-3"><a href="#">Бидний тухай</a></li>
+                    <li class="px-3"><a href="#">Үйлчилгээ</a></li>
+                    <li class="px-3"><a href="#">Холбоо барих</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<nav class="main-nav" id="mainNav"></nav>
-<div class="sub-nav" id="subNav"></div>
+    <section class="hero">
+        <div class="container">
+            <h1>Бүтээлч шийдэл, Төгс гүйцэтгэл</h1>
+            <p>Бид таны бизнесийг дараагийн түвшинд гаргахад тусална.</p>
+            <a href="#" class="btn btn-primary btn-lg mt-3">Эхлэх</a>
+        </div>
+    </section>
 
-<main class="content" id="appContent">
-    <h2>Тавтай морил</h2>
-    <p>Мэдээлэл харахын тулд дээрх цэснээс сонгоно уу.</p>
-</main>
+    <main class="container">
+        <div class="section-title">
+            <h2>Бидний Үйлчилгээ</h2>
+            <p>Таны хэрэгцээнд нийцсэн шилдэг шийдлүүд</p>
+        </div>
 
-<script>
-    // МЭДЭЭЛЛИЙГ ЭНДЭЭС ЗАСНА
-    const bookData = {
-        "page1": {
-            "label": "МЭДЭЭ",
-            "title": "Сүүлийн үеийн мэдээ",
-            "text": `
-                <div class="news-card">
-                    <h3>Шинэ ном хэвлэгдлээ!</h3>
-                    <p>Бидний удаан хүлээсэн шинэ бүтээл өнөөдөр бүх номын дэлгүүрүүдээр худалдаанд гарлаа.</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <h3>Вэб Дизайн</h3>
+                    <p>Орчин үеийн, хэрэглэгчдэд ээлтэй вэбсайт бүтээх.</p>
                 </div>
-                <img src="https://via.placeholder.com/800x400" alt="Номын зураг">
-                <p>Энэхүү ном нь маркетингийн орчин үеийн чиг хандлагыг багтаасан болно.</p>
-            `,
-            "subPages": {
-                "Арга хэмжээ": { 
-                    "title": "Уулзалт өдөрлөг", 
-                    "text": "Ирэх Бямба гарагт зохиолчтой хийх уулзалт болно. <br> <b>Байршил:</b> Төв номын сан." 
-                },
-                "Шүүмж": { 
-                    "title": "Уншигчдын сэтгэгдэл", 
-                    "text": "<ul class='feature-list'><li>Маш сайн ном - Бат</li><li>Хэрэгцээтэй мэдээлэл ихтэй - Сүрэн</li></ul>" 
-                }
-            }
-        },
-        "page2": { 
-            "label": "ГАЛЕРЕЙ", 
-            "title": "Зургийн цомог", 
-            "text": `
-                <p>Номын доторх зарим зураг, дүрслэлүүд:</p>
-                <img src="https://via.placeholder.com/400x300" alt="Зураг 1">
-                <img src="https://via.placeholder.com/400x300" alt="Зураг 2">
-            ` 
-        },
-        "page3": { 
-            "label": "ҮНЭ", 
-            "title": "Захиалга өгөх", 
-            "text": `
-                <p>Та доорх үнийн хүснэгтээс сонголтоо хийнэ үү:</p>
-                <div class="news-card">
-                    <b>Цаасан ном:</b> 35,000₮ <br>
-                    <b>Цахим ном:</b> 15,000₮
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <h3>Маркетинг</h3>
+                    <p>Таны брэндийг зах зээлд таниулах стратегийн төлөвлөлт.</p>
                 </div>
-            ` 
-        },
-        "page4": { 
-            "label": "ТУСЛАМЖ", 
-            "title": "Түгээмэл асуулт", 
-            "text": "Энд холбоо барих мэдээллүүд байна." 
-        }
-    };
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <h3>Зөвлөх үйлчилгээ</h3>
+                    <p>Мэргэжлийн түвшний зөвлөгөө, тусламж.</p>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    // Logic to render
-    const mainNav = document.getElementById('mainNav');
-    const subNav = document.getElementById('subNav');
-    const appContent = document.getElementById('appContent');
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Craftivo. Бүх эрх хуулиар хамгаалагдсан.</p>
+        </div>
+    </footer>
 
-    Object.keys(bookData).forEach(key => {
-        const btn = document.createElement('button');
-        btn.className = 'nav-btn';
-        btn.innerText = bookData[key].label;
-        btn.onclick = () => loadMainPage(key, btn);
-        mainNav.appendChild(btn);
-    });
-
-    function loadMainPage(key, btn) {
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const data = bookData[key];
-        subNav.innerHTML = '';
-        if (data.subPages) {
-            subNav.classList.add('show');
-            Object.keys(data.subPages).forEach(subKey => {
-                const sBtn = document.createElement('button');
-                sBtn.className = 'sub-btn';
-                sBtn.innerText = subKey;
-                sBtn.onclick = () => renderContent(data.subPages[subKey].title, data.subPages[subKey].text);
-                subNav.appendChild(sBtn);
-            });
-        } else { subNav.classList.remove('show'); }
-        renderContent(data.title, data.text || "Сонголт хийнэ үү.");
-    }
-
-    function renderContent(title, htmlContent) {
-        appContent.innerHTML = `<h2>${title}</h2><div>${htmlContent}</div>`;
-    }
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Интэрактив үйлдэл оруулах хэсэг
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Craftivo Single-file HTML ачааллаа!");
+        });
+    </script>
 </body>
 </html>
