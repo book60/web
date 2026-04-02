@@ -303,5 +303,25 @@
     updateCountdowns();
 </script>
 
+    
+
+<script>
+function autoResize(textarea) {
+    // Эхлээд өндрийг 'auto' болгож байж доторх текстийн бодит өндрийг (scrollHeight) хэмжинэ
+    textarea.style.height = 'auto';
+    // Текстийн өндөр дээр үндэслэн шинэ өндрийг онооно
+    textarea.style.height = (textarea.scrollHeight) + 'px';
+}
+
+// Пейж ачаалагдах үед текст байгаа бол өндрийг нь автоматаар тааруулах хэсэг
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.note-area').forEach(el => {
+        autoResize(el);
+    });
+});
+</script>
+
+    
+    
 </body>
 </html>
