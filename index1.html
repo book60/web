@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Deadline Dashboard - Fixed Layout</title>
+    <title>Time Line Dashboard - Fixed Layout</title>
     <style>
         :root {
             --bg-color: #000000;
@@ -97,7 +97,6 @@
             padding: 12px;
             font-size: 0.95rem;
             resize: none; /* Хэрэглэгч өөрөө булагнаас нь татаж сунгахыг идэвхгүй болгох */
-            overflow: hidden; /* Скролл баарыг нуух */
             overflow-y: hidden; /* Скролл баар харагдахгүй */
             box-sizing: border-box;
             line-height: 1.4;
@@ -123,12 +122,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .second-hand {
-            transition: none !important; /* JS-ээр урсгаж байгаа үед transition хэрэггүй */
-            width: 2px;
-            background: red;
         }
 
         .clock {
@@ -186,16 +179,16 @@
             <div class="deadline-card" data-time="2026-11-08T23:59:59">
                 <div class="card-row-1">
                     <div class="timer-name">Phase 2. Developmental Editing</div>
-                    <div class="target-date">Nov 8, 2026</div>
+                    <div class="target-date">Jan 13, 2027</div>
                     <div class="countdown-text">-- days</div>
                 </div>
                 <textarea class="note-area" placeholder="Шүүмжлэгч редакци: 4-8 weeks (1-5pph) &#10;Зохиомж, дүр, үйл явдлын уялдаа: Зохиолын бүтэц, дүрүүдийн хөгжил, үйл явдлын логик уялдаа холбоо зэрэг том зураглал-д дүн шинжилгээ хийж, шүүмжлэлтэйгээр засах үйл явц. Developmental/Substantive Editor хүн Зохиолын агуулгын гүн рүү орж, логик алдааг засах, зохиомжийг сайжруулах зөвлөгөө өгөх ажил хйинэ."></textarea>
-            </div>            
-            
+            </div>
+
             <div class="deadline-card" data-time="2026-12-15T23:59:59">
                 <div class="card-row-1">
                     <div class="timer-name">Phase 3. Stylistic/Line Editing</div>
-                    <div class="target-date">Dec 15, 2026</div>
+                    <div class="target-date">Nov 13, 2026</div>
                     <div class="countdown-text">-- days</div>
                 </div>
                 <textarea class="note-area" placeholder="Найруулга зүйн редакци: 3-5 weeks (5-10pph) &#10;Хэллэг, хэмнэл, өгүүлбэрийн бүтэц: Текстийн урсгал, хэмнэл, үг сонголт болон өгүүлбэрийн бүтцийг сайжруулж, уншигчдад илүү ойлгомжтой, сонирхолтой болгох үйл явц. Stylistic/Line Editor хүн Зохиолчийн хэв маягийг хадгалахын зэрэгцээ найруулгыг өнгөлөх, нуршуу хэсгийг засах ажил хийнэ."></textarea>
@@ -204,16 +197,16 @@
             <div class="deadline-card" data-time="2027-01-15T23:59:59">
                 <div class="card-row-1">
                     <div class="timer-name">Phase 4. Copy Editing</div>
-                    <div class="target-date">Jan 15, 2027</div>
+                    <div class="target-date">Oct 8, 2026</div>
                     <div class="countdown-text">-- days</div>
                 </div>
                 <textarea class="note-area" placeholder="Хэл зүйн редакци: 2-4 weeks (7-12pph) &#10;Зөв бичих дүрэм, цэг таслал: Текстийн зөв бичих дүрэм, цэг таслал, хэл зүйн алдааг засах техникийн шинжтэй ажил юм. Copyeditor хүн Үг үсэг, найруулгын жижиг алдаа, стандартыг шалгах ажил хийнэ."></textarea>
             </div>
-           
+
             <div class="deadline-card" data-time="2027-02-15T23:59:59">
                 <div class="card-row-1">
                     <div class="timer-name">Phase 5. Proofreading/Бөөс түүх</div>
-                    <div class="target-date">Feb 15, 2027</div>
+                    <div class="target-date">Jan 15, 2027</div>
                     <div class="countdown-text">-- days</div>
                 </div>
                 <textarea class="note-area" placeholder="Proofreading нь хамгийн эцсийн шатны шүүлтүүр юм. Үүнийг энгийнээр хэлбэл, номыг хэвлэх машин руу явуулахаас өмнө хийх хамгийн сүүлийн нягтлан шалгалт гэж болно. Энэ шатанд зохиолын утга санаа, найруулга, дүрүүдийн хөгжилд огт гар хүрдэггүй. Зөвхөн техникийн болон механик алдааг олж засахад төвлөрдөг. &#10;Үг үсгийн алдаа: Техникийн болон механик алдаа (Жишээ нь: зохиол гэхийг зохиоол гэж бичсэн байх). &#10;Цэг таслал: Илүүдсэн эсвэл дутсан цэг, таслал, хашилт, зураас. &#10;Дүрмийн алдаа: Хэл зүйн тохироо алдагдсан хэсгүүд. &#10;Формат ба Эх бэлтгэл: * Хуудасны дугаарлалт зөв эсэх. Гарчиг болон агуулгын хүснэгт таарч байгаа эсэх. Мөр хоорондын зай, үсгийн фонт солигдсон эсэх. Зураг, хүснэгтийн тайлбар зөв байрласан эсэх."></textarea>
@@ -222,7 +215,7 @@
             <div class="deadline-card" data-time="2026-04-15T23:59:59">
                 <div class="card-row-1">
                     <div class="timer-name">Funding</div>
-                    <div class="target-date">Apr 15, 2026</div>
+                    <div class="target-date">Jan 15, 2027</div>
                     <div class="countdown-text">-- days</div>
                 </div>
                 <textarea class="note-area" placeholder="Description here..."></textarea>
@@ -240,11 +233,13 @@
             <div class="deadline-card" data-time="2027-02-15T23:59:59">
                 <div class="card-row-1">
                     <div class="timer-name">Publishing</div>
-                    <div class="target-date">Feb 15, 2027</div>
+                    <div class="target-date">Jan 15, 2027</div>
                     <div class="countdown-text">-- days</div>
                 </div>
                 <textarea class="note-area" placeholder="Description here..."></textarea>
             </div>
+
+
 
 
         </div>
@@ -262,85 +257,78 @@
 
 </div>
 
-
-
-
-    
 <script>
-// 1. Текст блок сунгах функц
-function autoResize(textarea) {
-    if (!textarea) return;
-    textarea.style.height = 'auto';
-    textarea.style.height = textarea.scrollHeight + 'px';
-}
+    function updateDate() {
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        document.getElementById('current-date').innerText = now.toLocaleDateString('en-US', options);
+    }
 
-// 2. Аналог цагийг урсгах (Smooth sweep)
-function updateAnalogClock() {
-    const now = new Date();
-    const seconds = now.getSeconds();
-    const millis = now.getMilliseconds();
-    const minutes = now.getMinutes();
-    const hours = now.getHours();
+    function updateAnalogClock() {
+        const now = new Date();
+        const s = now.getSeconds() * 6;
+        const m = now.getMinutes() * 6;
+        const h = (now.getHours() % 12) * 30 + (now.getMinutes() / 2);
 
-    // Миллисекунд ашиглан зүүг маш зөөлөн урсгах тооцоолол
-    const secondDegrees = ((seconds + millis / 1000) / 60) * 360 + 90;
-    const minuteDegrees = ((minutes + seconds / 60) / 60) * 360 + 90;
-    const hourDegrees = ((hours % 12 + minutes / 60) / 12) * 360 + 90;
+        document.getElementById('sec-hand').style.transform = `translateX(-50%) rotate(${s}deg)`;
+        document.getElementById('min-hand').style.transform = `translateX(-50%) rotate(${m}deg)`;
+        document.getElementById('hour-hand').style.transform = `translateX(-50%) rotate(${h}deg)`;
+    }
 
-    // Класс нэршлүүдээ таны HTML-тэй ижил байгааг шалгаарай
-    const secondHand = document.querySelector('.second-hand');
-    const minHand = document.querySelector('.min-hand');
-    const hourHand = document.querySelector('.hour-hand');
+    function updateCountdowns() {
+        const cards = document.querySelectorAll('.deadline-card');
+        cards.forEach(card => {
+            const targetTime = new Date(card.getAttribute('data-time')).getTime();
+            const now = new Date().getTime();
+            const diff = targetTime - now;
+            const display = card.querySelector('.countdown-text');
 
-    if (secondHand) secondHand.style.transform = `rotate(${secondDegrees}deg)`;
-    if (minHand) minHand.style.transform = `rotate(${minuteDegrees}deg)`;
-    if (hourHand) hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-}
-
-// 3. Хоног тоолуур (Секундгүй, цэгцтэй хувилбар)
-function updateCountdowns() {
-    const cards = document.querySelectorAll('.deadline-card');
-    const now = new Date().getTime();
-
-    cards.forEach(card => {
-        const targetStr = card.getAttribute('data-time');
-        const display = card.querySelector('.countdown-text');
-        
-        if (targetStr && display) {
-            const targetDate = new Date(targetStr).getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                display.innerHTML = "<span style='color:#bdc3c7;'>Дууссан</span>";
-            } else {
-                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                
-                // Зөвхөн Хоног, Цаг, Минут харуулна
-                display.innerHTML = `<b>${d}</b>D <b>${h}</b>H <b>${m}</b>M`;
+            if (diff <= 0) {
+                display.innerText = "Expired";
+                display.style.color = "#ff4d4d";
+                return;
             }
-        }
-    });
-}
 
-// Бүгдийг идэвхжүүлэх
-document.addEventListener('DOMContentLoaded', () => {
-    // Текст блокуудыг эхлүүлэх
-    document.querySelectorAll('.note-area').forEach(autoResize);
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            display.innerText = `${d + 1} days`; 
+            display.style.color = "#f0f0f0";
+        });
+    }
 
-    // Цагийг маш ойрхон (50ms) шинэчилж урсгах
-    setInterval(updateAnalogClock, 50);
+    setInterval(() => {
+        updateAnalogClock();
+        updateCountdowns();
+    }, 1000);
 
-    // Тоолуурыг минут тутамд шинэчилсэн ч болно, эсвэл секунд тутамд
+    updateDate();
+    updateAnalogClock();
     updateCountdowns();
-    setInterval(updateCountdowns, 1000); 
-});
 </script>
 
+    
 
+<script>
+// Текст блокийн өндрийг тааруулах функц
+function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
+}
 
+// Хуудас ачаалагдахад бүх textarea-г шалгаж, өндрийг нь тааруулах
+document.addEventListener('DOMContentLoaded', () => {
+    const textareas = document.querySelectorAll('.note-area');
 
+    textareas.forEach(textarea => {
+        // 1. Анх ачаалагдах үед дотор нь текст байвал сунгана
+        autoResize(textarea);
+
+        // 2. Хэрэглэгч бичих болгонд сунгана
+        textarea.addEventListener('input', function() {
+            autoResize(this);
+        });
+    });
+});
+</script>
 
     
     
