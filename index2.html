@@ -3,161 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bite - It's time to brush better</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Bite | Plastic-Free Toothpaste & Oral Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* Үндсэн тохиргоо */
+        /* 1. СТИЛЬ: ҮНДСЭН ТОХИРГОО */
+        :root {
+            --lime: #dfff5e;
+            --black: #000000;
+            --white: #ffffff;
+            --off-white: #f9f9f9;
+            --gray: #666;
+            --header-height: 100px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
         }
 
-        :root {
-            --primary-black: #000000;
-            --promo-lime: #DFFF5E; /* Дээд талын урамшууллын хэсгийн өнгө */
-            --text-white: #ffffff;
-        }
-
-        /* Урамшууллын дээд хэсэг (Banner) */
+        /* 2. СТИЛЬ: PROMO BAR (Хамгийн дээд хэсэг) */
         .promo-bar {
-            background-color: var(--promo-lime);
-            text-align: center;
-            padding: 10px 0;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            background-color: var(--lime);
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
         }
 
-        /* Навигацийн хэсэг */
+        /* 3. СТИЛЬ: NAVIGATION (Навигаци) */
         header {
-            position: absolute;
-            top: 40px; /* Promo-bar-ын доор байрлах зай */
+            height: 60px;
             width: 100%;
+            position: fixed;
+            top: 40px;
+            background: transparent;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            z-index: 10;
+            padding: 0 50px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        header.scrolled {
+            background: var(--white);
+            border-bottom: 1px solid #eee;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 32px;
             font-weight: 700;
-            color: var(--primary-black);
             text-decoration: none;
+            color: var(--black);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 40px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--primary-black);
-            font-size: 14px;
-            font-weight: 500;
+            color: var(--black);
+            font-size: 13px;
+            font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .icons {
+        .header-icons {
             display: flex;
-            gap: 20px;
-            font-size: 20px;
+            gap: 25px;
+            align-items: center;
         }
 
-        /* Hero section - Үндсэн нүүр */
+        /* 4. СТИЛЬ: HERO SECTION (Үндсэн нүүр зурагтай хэсэг) */
         .hero {
             height: 100vh;
-            width: 100%;
-            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&q=80&w=2000'); /* Жишээ зураг - Байгалийн аястай */
-            background-size: cover;
-            background-position: center;
             display: flex;
             align-items: center;
-            padding-left: 80px;
             position: relative;
+            padding-top: 100px; /* Header-ийн зай */
+            background-image: url('https://bitetoothpastebits.com/cdn/shop/files/Bite_Ecom_Home_Hero_Desktop_v2.jpg?v=1708453416'); /* Сайтын жинхэнэ зураг */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.05); /* Зургийг бага зэрэг зөөлрүүлэх */
         }
 
         .hero-content {
-            max-width: 500px;
-            color: var(--text-white);
+            position: relative;
+            z-index: 1;
+            margin-left: 8%;
+            max-width: 600px;
         }
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 84px; /* Том гарчиг */
-            line-height: 0.9;
-            margin-bottom: 25px;
+            font-size: 85px;
+            line-height: 0.95;
+            margin-bottom: 20px;
+            color: var(--black);
         }
 
         .hero-content p {
-            font-size: 22px;
+            font-size: 20px;
             line-height: 1.4;
-            margin-bottom: 35px;
-            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--black);
         }
 
-        /* Товчлуур */
-        .btn-shop {
-            background-color: var(--primary-black);
-            color: white;
-            padding: 18px 80px;
+        /* CTA BUTTON */
+        .btn {
+            display: inline-block;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 20px 60px;
             text-decoration: none;
-            font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s ease;
+            letter-spacing: 0.1em;
+            font-size: 14px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        .btn-shop:hover {
-            opacity: 0.8;
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #333;
         }
 
-        /* Гар утасны харагдац (Responsive) */
+        /* 5. СТИЛЬ: PRODUCT SECTION (Бүтээгдэхүүн) */
+        .featured-products {
+            padding: 100px 50px;
+            background-color: var(--off-white);
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Мэдрэгчтэй байдал (Responsive) */
         @media (max-width: 768px) {
+            header { padding: 0 20px; }
+            nav { display: none; } /* Mobile цэсийг нуув */
             .hero-content h1 { font-size: 50px; }
-            header { padding: 20px; }
-            nav { display: none; } /* Гар утсан дээр цэсийг нуух */
-            .hero { padding-left: 20px; }
+            .hero { background-position: 70%; }
         }
     </style>
 </head>
 <body>
 
     <div class="promo-bar">
-        Ends Soon — <b>Free Welcome Kit</b> on orders $45+
+        Ends Soon — Free Welcome Kit on orders $45+
     </div>
 
-    <header>
+    <header id="mainHeader">
         <a href="#" class="logo">Bite</a>
         
         <nav>
             <ul>
                 <li><a href="#">Shop</a></li>
                 <li><a href="#">About</a></li>
+                <li><a href="#">Subscription</a></li>
                 <li><a href="#">Our Impact</a></li>
             </ul>
         </nav>
 
-        <div class="icons">
-            <span>👤</span> <span>👜</span> </div>
+        <div class="header-icons">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
     </header>
 
-    <main class="hero">
+    <section class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>It's time to brush better.</h1>
-            <p>Clean up your routine with Toothpaste Bits. No plastic, no harsh chemicals – just a better way to brush your teeth.</p>
-            <a href="#" class="btn-shop">Shop Now</a>
+            <p>Clean up your routine with Toothpaste Bits. <br>No plastic, no harsh chemicals – just a better way to brush your teeth.</p>
+            <a href="#" class="btn">Shop Now</a>
         </div>
-    </main>
+    </section>
+
+    <section class="featured-products">
+        <h2 class="section-title">Shop our best sellers</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://bitetoothpastebits.com/cdn/shop/products/Bite_ToothpasteBits_FreshMint_1_1024x1024.jpg?v=1655314051" alt="Toothpaste">
+                <h3>Fresh Mint Bits</h3>
+                <p>$32.00</p>
+            </div>
+            <div class="product-card">
+                <img src="https://bitetoothpastebits.com/cdn/shop/products/Bite_Deodorant_RoseTart_1_1024x1024.jpg?v=1655314051" alt="Deodorant">
+                <h3>Rose Tart Deodorant</h3>
+                <p>$18.00</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Скролл хийх үед Header-ийн өнгө өөрчлөгдөх
+        window.onscroll = function() {
+            var header = document.getElementById("mainHeader");
+            if (window.pageYOffset > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        };
+
+        // Hero хэсгийн гарчиг зөөлөн орж ирэх эффект (Animation)
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.querySelector('.hero-content');
+            content.style.opacity = '0';
+            content.style.transform = 'translateY(20px)';
+            content.style.transition = 'all 1s ease-out';
+            
+            setTimeout(() => {
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
 
 </body>
 </html>
