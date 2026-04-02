@@ -93,9 +93,8 @@
     function initGrid() {
 	// Тэмдэглэх хотуудын жагсаалт (Нэр, Өргөрөг, Уртраг)
 const cities = [
-    { name: "Ulaanbaatar", lat: 47.8864, lon: 106.9057 },
-	
-	// Аймгийн төвүүд
+	// Монгол улс, аймгийн төвүүд
+	{ name: "Ulaanbaatar", lat: 47.8864, lon: 106.9057 },
 	{ name: "Arvaikheer (Uvurkhangai)", lat: 46.2633, lon: 102.7750 },
     { name: "Altai (Gobi-Altai)", lat: 46.3722, lon: 96.2583 },
     { name: "Baruun-Urt (Sukhbaatar)", lat: 46.6806, lon: 113.2792 },
@@ -118,7 +117,7 @@ const cities = [
     { name: "Choir (Gobisumber)", lat: 46.3611, lon: 108.3611 },
     { name: "Ereentsav", lat: 49.5242, lon: 116.7114 },
 	
-	//АНУ мужууд
+	//АНУ, муж улсуудын нийслэл
     { name: "New York", lat: 40.7128, lon: -74.0060 },
     { name: "Washington D.C.", lat: 38.8951, lon: -77.0364 },
     { name: "Los Angeles", lat: 34.0522, lon: -118.2437 },	
@@ -212,12 +211,6 @@ cities.forEach(city => {
 
 
 
-
-
-
-
-
-
 // ЕВРОП ТИВ НИЙСЛЭЛҮҮД
 const europeanCapitals = [
     { name: "Tirana, Albania", lat: 41.3275, lon: 19.8187 },
@@ -288,12 +281,6 @@ europeanCapitals.forEach(city => {
     })
     .addTo(map);
 });
-
-
-
-
-
-
 
 
 
@@ -372,7 +359,6 @@ const asianCapitals = [
     { name: "Beirut, Lebanon", lat: 33.8938, lon: 35.5018 },
     { name: "Kuala Lumpur, Malaysia", lat: 3.1390, lon: 101.6869 },
     { name: "Male, Maldives", lat: 4.1755, lon: 73.5093 },
-    { name: "Ulaanbaatar, Mongolia", lat: 47.8864, lon: 106.9057 },
     { name: "Naypyidaw, Myanmar", lat: 19.7633, lon: 96.0785 },
     { name: "Kathmandu, Nepal", lat: 27.7172, lon: 85.3240 },
     { name: "Pyongyang, North Korea", lat: 39.0392, lon: 125.7625 },
@@ -413,12 +399,6 @@ asianCapitals.forEach(city => {
     })
     .addTo(map);
 });
-
-
-
-
-
-
 
 
 
@@ -474,12 +454,7 @@ northAmericanCapitals.forEach(city => {
 
 
 
-
-
-
-
-
-	// ӨМНӨД АМЕРИК ТИВ НИЙСЛЭЛҮҮД
+// ӨМНӨД АМЕРИК ТИВ НИЙСЛЭЛҮҮД
 const southAmericanCapitals = [
     { name: "Buenos Aires, Argentina", lat: -34.6037, lon: -58.3816 },
     { name: "La Paz, Bolivia", lat: -16.4897, lon: -68.1193 },
@@ -516,11 +491,6 @@ southAmericanCapitals.forEach(city => {
     })
     .addTo(map);
 });
-
-
-
-
-
 
 
 
@@ -602,9 +572,6 @@ africanCapitals.forEach(city => {
 
 	
 
-
-
-
 // АВСТРАЛИ/ДАЛАЙН ОРНУУД
 const oceaniaCapitals = [
 
@@ -632,8 +599,6 @@ const oceaniaCapitals = [
     { name: "Queenstown, NZ", lat: -45.0312, lon: 168.6626 },
     { name: "Invercargill, NZ", lat: -46.4131, lon: 168.3538 },
 	
-    { name: "Canberra, Australia", lat: -35.2809, lon: 149.1300 },
-    { name: "Wellington, New Zealand", lat: -41.2865, lon: 174.7762 },
     { name: "Suva, Fiji", lat: -18.1248, lon: 178.4501 },
     { name: "Port Moresby, Papua New Guinea", lat: -9.4438, lon: 147.1803 },
     { name: "Honiara, Solomon Islands", lat: -9.4456, lon: 159.9729 },
@@ -664,11 +629,6 @@ oceaniaCapitals.forEach(city => {
     })
     .addTo(map);
 });
-
-
-
-
-
 
 
 
