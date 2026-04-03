@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bite | Plastic-Free Toothpaste & Oral Care</title>
+    <title>INDEX2</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -12,7 +12,7 @@
         :root {
             --lime: #dfff5e;
             --black: #000000;
-            --white: #ffffff;
+            --white: #fff000;
             --off-white: #f9f9f9;
             --gray: #666;
             --header-height: 100px;
@@ -29,6 +29,12 @@
             background-color: var(--white);
             color: var(--black);
             overflow-x: hidden;
+            
+    		background-image: url('https://png.pngtree.com/background/20250104/original/pngtree-free-hd-wallpaper-4k-new-background-picture-image_15546678.jpg'); /* Зургийн замыг энд зааж өгнө */
+    		background-position: center; /* Зургийг дэлгэцийн голд байрлуулна */
+			background-repeat: no-repeat; /* Зургийг давтахгүй */
+			background-attachment: fixed; /* Зургийг хөдөлгөөнгүй (fixed) болгоно. Энэ нь скроллдох үед зураг урсахгүй байх гол тохиргоо юм */
+			background-size: cover; /* Зургийг дэлгэцийн хэмжээнд тааруулж сунгана (Responsive) */
         }
 
         /* 2. СТИЛЬ: PROMO BAR (Хамгийн дээд хэсэг) */
@@ -210,7 +216,7 @@
         
         <nav>
             <ul>
-                <li><a href="#">Shop</a></li>
+                <li><a href="#">Order</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Subscription</a></li>
                 <li><a href="#">Our Impact</a></li>
@@ -263,7 +269,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const content = document.querySelector('.hero-content');
             content.style.opacity = '0';
-            content.style.transform = 'translateY(20px)';
+            content.style.transform = 'translateY(40px)';
             content.style.transition = 'all 1s ease-out';
             
             setTimeout(() => {
