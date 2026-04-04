@@ -787,35 +787,58 @@ oceaniaCapitals.forEach(city => {
         }
     }
 
-    function updateSolarTerminator() {
-        if (nightLayer) map.removeLayer(nightLayer);
-        const now = new Date();
-        const julianDay = (now / 86400000) - (now.getTimezoneOffset() / 1440) + 2440587.5;
-        const T = (julianDay - 2451545.0) / 36525;
-        const L0 = 280.46646 + 36000.76983 * T;
-        const M = 357.52911 + 35999.05029 * T;
-        const lambda = L0 + 1.914666 * Math.sin(M * Math.PI / 180);
-        const epsilon = 23.43929 - 0.01300 * T;
-        const delta = Math.asin(Math.sin(epsilon * Math.PI / 180) * Math.sin(lambda * Math.PI / 180)) * 180 / Math.PI;
-        const utcMinutes = now.getUTCHours() * 60 + now.getUTCMinutes();
-        const sunLon = 180 - (utcMinutes / 4);
 
+
+
+let nightLayers = []; // Гурван давхаргыг хадгалах массив
+
+function updateSolarTerminator() {
+    // 1. Өмнөх бүх давхаргуудыг устгах
+    nightLayers.forEach(layer => map.removeLayer(layer));
+    nightLayers = [];
+
+    const now = new Date();
+    const julianDay = (now / 86400000) - (now.getTimezoneOffset() / 1440) + 2440587.5;
+    const T = (julianDay - 2451545.0) / 36525;
+    const L0 = 280.46646 + 36000.76983 * T;
+    const M = 357.52911 + 35999.05029 * T;
+    const lambda = L0 + 1.914666 * Math.sin(M * Math.PI / 180);
+    const epsilon = 23.43929 - 0.01300 * T;
+    const delta = Math.asin(Math.sin(epsilon * Math.PI / 180) * Math.sin(lambda * Math.PI / 180)) * 180 / Math.PI;
+    const utcMinutes = now.getUTCHours() * 60 + now.getUTCMinutes();
+    const sunLon = 180 - (utcMinutes / 4);
+
+    // 2. Гурван дэлхийд зориулсан offset-ууд
+    const offsets = [-360, 0, 360];
+
+    offsets.forEach(offset => {
         const latPoints = [];
-        for (let lon = -180; lon <= 180; lon += 1) {
+        for (let lon = -180; lon <= 180; lon += 2) { // 2 градус тутамд авбал хурд илүү сайн байна
             const lat = Math.atan(-Math.cos((lon - sunLon) * Math.PI / 180) / Math.tan(delta * Math.PI / 180)) * 180 / Math.PI;
-            latPoints.push([lat, lon]);
+            // Тухайн цэг дээр offset-ийг нэмж байна
+            latPoints.push([lat, lon + offset]);
         }
-        const nightPath = delta > 0 
-            ? [[-90, -180], ...latPoints, [-90, 180], [-90, -180]] 
-            : [[90, -180], ...latPoints, [90, 180], [90, -180]];
 
-        nightLayer = L.polygon(nightPath, {
+        const nightPath = delta > 0 
+            ? [[-90, -180 + offset], ...latPoints, [-90, 180 + offset], [-90, -180 + offset]] 
+            : [[90, -180 + offset], ...latPoints, [90, 180 + offset], [90, -180 + offset]];
+
+        const layer = L.polygon(nightPath, {
             fillColor: '#000',
-            fillOpacity: 0.7,
+            fillOpacity: 0.5, // 0.7-оос бага зэрэг багасгавал газрын зураг илүү сайн харагдана
             stroke: false,
             interactive: false
         }).addTo(map);
-    }
+
+        nightLayers.push(layer);
+    });
+}
+    
+    
+    
+    
+    
+    
 
     function updateClocks() {
         const now = new Date();
