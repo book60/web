@@ -143,22 +143,26 @@ f1Tracks2026.forEach(city => {
 
 
 const usaStrategicBases = [
-  { name: "Ramstein Air Base, Germany", lat: 49.4447, lon: 7.5911 }, // Европ дахь хамгийн том бааз
-  { name: "Camp Humphreys, South Korea", lat: 36.9675, lon: 127.0317 }, // Хилийн чанад дахь хамгийн том хуурай замын бааз
-  { name: "Kadena Air Base, Japan", lat: 26.3556, lon: 127.7678 }, // Номхон далай дахь стратегийн зангилаа
-  { name: "Guam (Andersen AFB)", lat: 13.5786, lon: 144.9247 }, // АНУ-ын өөрийн нутаг дэвсгэр дэх стратегийн бааз
-  { name: "Diego Garcia, BIOT", lat: -7.3133, lon: 72.4111 }, // Энэтхэгийн далайн төв цэг
-  { name: "Al Udeid Air Base, Qatar", lat: 25.1172, lon: 51.3150 }, // Ойрхи Дорнод дахь төв бааз
-  { name: "Camp Lemonnier, Djibouti", lat: 11.5464, lon: 43.1458 }, // Африк дахь цорын ганц байнгын бааз
-  { name: "Aviano Air Base, Italy", lat: 46.0319, lon: 12.5964 }, // НАТО-гийн өмнөд жигүүр
-  { name: "Thule Air Base, Greenland", lat: 76.5312, lon: -68.7032 }, // Арктикийн хамгийн хойд цэг
-  { name: "Incirlik Air Base, Turkey", lat: 37.0019, lon: 35.4258 } // Ойрхи Дорнод болон Европын зааг дээрх бааз
-];
+	{ name: "Ramstein Air Base, Germany", lat: 49.4447, lon: 7.5911 }, // Европ дахь хамгийн том бааз
+	{ name: "Camp Humphreys, South Korea", lat: 36.9675, lon: 127.0317 }, // Хилийн чанад дахь хамгийн том хуурай замын бааз
+	{ name: "Kadena Air Base, Japan", lat: 26.3556, lon: 127.7678 }, // Номхон далай дахь стратегийн зангилаа
+	{ name: "Guam (Andersen AFB)", lat: 13.5786, lon: 144.9247 }, // АНУ-ын өөрийн нутаг дэвсгэр дэх стратегийн бааз
+	{ name: "Diego Garcia, BIOT", lat: -7.3133, lon: 72.4111 }, // Энэтхэгийн далайн төв цэг
+	{ name: "Al Udeid Air Base, Qatar", lat: 25.1172, lon: 51.3150 }, // Ойрхи Дорнод дахь төв бааз
+	{ name: "Camp Lemonnier, Djibouti", lat: 11.5464, lon: 43.1458 }, // Африк дахь цорын ганц байнгын бааз
+	{ name: "Aviano Air Base, Italy", lat: 46.0319, lon: 12.5964 }, // НАТО-гийн өмнөд жигүүр
+	{ name: "Thule Air Base, Greenland", lat: 76.5312, lon: -68.7032 }, // Арктикийн хамгийн хойд цэг
+	{ name: "Incirlik Air Base, Turkey", lat: 37.0019, lon: 35.4258 }, // Ойрхи Дорнод болон Европын зааг дээрх бааз
+	{ name: "Fort Bragg (Liberty), NC, USA", lat: 35.1390, lon: -79.0060 }, // Хамгийн олон цэрэгтэй бааз
+	{ name: "Norfolk Naval Station, VA, USA", lat: 36.9377, lon: -76.3228 }, // Дэлхийн хамгийн том тэнгисийн цэргийн бааз
+	{ name: "Pentagon, VA, USA", lat: 38.8719, lon: -77.0563 }, // Цэргийн удирдлагын төв
+	{ name: "Nelllis Air Force Base, NV, USA", lat: 36.2361, lon: -115.0342 } // Нисэх хүчний сургуулилалтын төв
+
 
 // Хотуудыг нэмэх функц (Таны кодын cities массив дотор нэмж болно)
 usaStrategicBases.forEach(city => {
     L.circleMarker([city.lat, city.lon], {
-        radius: 250,
+        radius: 350,
         fillColor: "white",   // Дотор талын өнгө (тод ягаан)
         color: "#F641F0", // Хүрээний өнгө
         weight: 0.4,      // Хүрээний зузаан
