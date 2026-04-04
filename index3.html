@@ -208,6 +208,11 @@ cities.forEach(city => {
 
 
 
+
+
+
+
+		
 // ФОРМУЛА-1 2026 ОНЫ ХОТУУД
 // 1. 2026 оны Формула-1-ийн уралдааны замуудын дата
 const f1Tracks2026 = [
@@ -238,48 +243,24 @@ const f1Tracks2026 = [
   { name: "Madrid, Spain", lat: 40.4639, lon: -3.6156 }
 ];
 
-// 2. Барианы тугны икон үүсгэх функц
-const createRaceIcon = () => {
-    return L.divIcon({
-        html: '<div style="font-size: 22px; cursor: pointer;">🏁</div>',
-        className: 'f1-marker',
-        iconSize: [25, 25],
-        iconAnchor: [12, 12]
-    });
-};
-
-// 3. Газрын зураг дээр трассуудыг нэмэх үндсэн код
-function initF1Markers(map) {
-    f1Tracks2026.forEach(track => {
-        L.marker([track.lat, track.lon], { 
-            icon: createRaceIcon() 
-        })
-        .bindTooltip(track.name, { 
-            direction: 'top', 
-            className: 'city-tooltip',
-            offset: [0, -5],
-            opacity: 0.9
-        })
-        .addTo(map);
-    });
-}
-
-// 4. Скриптийн эхлэл хэсэг
-function init() {
-    // Газрын зураг болон бусад функцүүдийг эхлүүлэх
-    initGrid();
-    updateClocks();
-    updateSolarTerminator();
-    
-    // F1 маркеруудыг нэмэх (map объект дамжуулна)
-    initF1Markers(map); 
-
-    // Хугацаат шинэчлэлтүүд
-    setInterval(updateClocks, 1000);
-    setInterval(updateSolarTerminator, 60000);
-}
+// Хотуудыг зураг дээр дугуй цэгээр зурах
+cities.forEach(city => {
+    L.circleMarker([city.lat, city.lon], {
+        radius: 2,              // Цэгийн хэмжээ
+        fillColor: "#5400E6",   // Дотор талын өнгө (тод цэнхэр)
+        color: "#fff",          // Хүрээний өнгө
+        weight: 0,            // Хүрээний зузаан
+        opacity: 0,
+        fillOpacity: 1
+    })
+    .bindTooltip(city.name, { direction: 'top', className: 'city-tooltip' }) // Хот дээр очиход нэр нь харагдана
+    .addTo(map);
+});
 
 
+
+
+		
 		
 		
 
