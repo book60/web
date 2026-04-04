@@ -163,11 +163,11 @@ const usaStrategicBases = [
 usaStrategicBases.forEach(city => {
 	// 1. Төв цэгт байрлах жижиг тод цэг
     L.circleMarker([city.lat, city.lon], {
-        radius: 3,           // Жижиг хэмжээ
-        fillColor: "#F641F0", // Төв цэгний өнгө (Тод ягаан)
-        color: "#fff",       // Цэгний хүрээ (Цагаан)
+        radius: 10,           // Жижиг хэмжээ
+        fillColor: "#F641F0", // Төв цэгний өнгө
+        color: "#fff",       // Цэгний хүрээ
         weight: 1,           // Хүрээний зузаан
-        fillOpacity: 1       // Огт тунгалаг биш, цул өнгө
+        fillOpacity: 0       // Огт тунгалаг биш, цул өнгө
     }).addTo(map);
 
     // 2. Гадна талын том бүдэг тойрог (Таны одоогийн код)
