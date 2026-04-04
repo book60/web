@@ -139,6 +139,41 @@ f1Tracks2026.forEach(city => {
     .addTo(map);
 });
 
+
+
+
+const usaStrategicBases = [
+  { name: "Ramstein Air Base, Germany", lat: 49.4447, lon: 7.5911 }, // Европ дахь хамгийн том бааз
+  { name: "Camp Humphreys, South Korea", lat: 36.9675, lon: 127.0317 }, // Хилийн чанад дахь хамгийн том хуурай замын бааз
+  { name: "Kadena Air Base, Japan", lat: 26.3556, lon: 127.7678 }, // Номхон далай дахь стратегийн зангилаа
+  { name: "Guam (Andersen AFB)", lat: 13.5786, lon: 144.9247 }, // АНУ-ын өөрийн нутаг дэвсгэр дэх стратегийн бааз
+  { name: "Diego Garcia, BIOT", lat: -7.3133, lon: 72.4111 }, // Энэтхэгийн далайн төв цэг
+  { name: "Al Udeid Air Base, Qatar", lat: 25.1172, lon: 51.3150 }, // Ойрхи Дорнод дахь төв бааз
+  { name: "Camp Lemonnier, Djibouti", lat: 11.5464, lon: 43.1458 }, // Африк дахь цорын ганц байнгын бааз
+  { name: "Aviano Air Base, Italy", lat: 46.0319, lon: 12.5964 }, // НАТО-гийн өмнөд жигүүр
+  { name: "Thule Air Base, Greenland", lat: 76.5312, lon: -68.7032 }, // Арктикийн хамгийн хойд цэг
+  { name: "Incirlik Air Base, Turkey", lat: 37.0019, lon: 35.4258 } // Ойрхи Дорнод болон Европын зааг дээрх бааз
+];
+
+// Хотуудыг нэмэх функц (Таны кодын cities массив дотор нэмж болно)
+usaStrategicBases.forEach(city => {
+    L.circleMarker([city.lat, city.lon], {
+        radius: 250,
+        fillColor: "white",   // Дотор талын өнгө (тод ягаан)
+        color: "#F641F0", // Хүрээний өнгө
+        weight: 0.4,      // Хүрээний зузаан
+        opacity: 0,
+        fillOpacity: 0.05
+    })
+    .bindTooltip(city.name, { 
+        direction: 'top', 
+        className: 'city-label',
+        offset: [0, -5]
+    })
+    .addTo(map);
+});
+
+		
 				
 		
 const cities = [
@@ -429,17 +464,15 @@ const asianCapitals = [
     { name: "Abu Dhabi, UAE", lat: 24.4539, lon: 54.3773 },
     { name: "Tashkent, Uzbekistan", lat: 41.2995, lon: 69.2401 },
     { name: "Hanoi, Vietnam", lat: 21.0285, lon: 105.8542 },
-    { name: "Sana'a, Yemen", lat: 15.3694, lon: 44.1910 },
+    { name: "Sana'a, Yemen", lat: 15.3694, lon: 44.1910 }
 
-	// --- АНУ ЦЭРГИЙН БААЗ ---
-	{ name: "Diego Garcia, BIOT", lat: -7.3133, lon: 72.4111 },
 ];
 
 // Зураг дээр тэмдэглэх функц
 asianCapitals.forEach(city => {
     L.circleMarker([city.lat, city.lon], {
         radius: 2,
-        fillColor: "#ffcc00", // Азийн хотуудыг шар өнгөөр ялгав
+        fillColor: "#ffff00", // Азийн хотуудыг шар өнгөөр ялгав
         color: "#fff",
         weight: 0,
         opacity: 0,
@@ -454,9 +487,8 @@ asianCapitals.forEach(city => {
 
 
 
-
-// ХОЙД/ТӨВ АМЕРИК ТИВ НИЙСЛЭЛҮҮД
-const northAmericanCapitals = [
+// ТӨВ АМЕРИК ТИВ НИЙСЛЭЛҮҮД
+const centralAmericanCapitals = [
     // Хойд Америк
     { name: "Mexico City, Mexico", lat: 19.4326, lon: -99.1332 },
 
@@ -487,7 +519,7 @@ const northAmericanCapitals = [
 ];
 
 // Зураг дээр тэмдэглэх функц
-northAmericanCapitals.forEach(city => {
+centralAmericanCapitals.forEach(city => {
     L.circleMarker([city.lat, city.lon], {
         radius: 2,
         fillColor: "#00ff00", // Хойд Америкийн хотуудыг улаан өнгөөр ялгав
@@ -608,7 +640,7 @@ const africanCapitals = [
 africanCapitals.forEach(city => {
     L.circleMarker([city.lat, city.lon], {
         radius: 2,
-        fillColor: "#ff3300", // Африкийн хотуудыг улбар шар өнгөөр ялгав
+        fillColor: "#ff0000", // Африкийн хотуудыг улбар шар өнгөөр ялгав
         color: "#fff",
         weight: 0,
         opacity: 0,
